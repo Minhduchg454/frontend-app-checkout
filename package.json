@@ -1,10 +1,10 @@
 {
-  "name": "@edx/frontend-template-application",
+  "name": "@edx/frontend-app-payment-history",
   "version": "0.1.0",
-  "description": "Frontend application template",
+  "description": "Frontend-app-payment-history",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/openedx/frontend-template-application.git"
+    "url": "git+https://github.com/Minhduchg454/frontend-app-payment-history.git"
   },
   "browserslist": [
     "extends @edx/browserslist-config"
