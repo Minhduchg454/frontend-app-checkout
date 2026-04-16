@@ -27,7 +27,6 @@ const App = () => {
       <div className="app-container">
         {isShowModal && <Modal>{modalChildren}</Modal>}
         <Routes>
-          <Route path="/" element={<Checkout />} />
           <Route path={path.checkout} element={<Checkout />} />
           <Route path={path.result} element={<ResultCheckout />} />
           <Route path={path.test} element={<TestPage />} />

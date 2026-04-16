@@ -34,25 +34,31 @@ function buildCreateRawSignature({
   );
 }
 
-export const createMoMoPayment = async ({ orderId, amount, orderInfo }) => {
-  const { endpoint, partnerCode, accessKey, secretKey, redirectUrl, ipnUrl } =
-    MOMO_CONFIG;
+export const createMoMoPayment = async ({
+  orderId,
+  amount,
+  orderInfo,
+  CLIENT_URL,
+}) => {
+  const { endpoint, partnerCode, accessKey, secretKey } = MOMO_CONFIG;
 
   const requestId = orderId;
   const requestType = "payWithMethod";
   const extraData = "";
   const autoCapture = true;
   const lang = "vi";
+  const ipnUrl = `${CLIENT_URL}momo_ipn/`;
+  const redirectUrl = `${CLIENT_URL}momo_return/`;
 
   const rawSignature = buildCreateRawSignature({
     accessKey,
     amount,
     extraData,
-    ipnUrl,
+    ipnUrl: `${CLIENT_URL}momo_ipn/`,
     orderId,
     orderInfo,
     partnerCode,
-    redirectUrl,
+    redirectUrl: `${CLIENT_URL}momo_return/`,
     requestId,
     requestType,
   });

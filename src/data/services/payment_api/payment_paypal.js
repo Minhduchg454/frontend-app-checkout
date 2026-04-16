@@ -27,7 +27,12 @@ export function convertToPaypalAmount(amount, currency) {
 }
 
 // Tạo đơn hàng PayPal
-export const createPayPalOrder = async ({ orderId, amount, currency }) => {
+export const createPayPalOrder = async ({
+  orderId,
+  amount,
+  currency,
+  CLIENT_URL,
+}) => {
   const accessToken = await getPayPalAccessToken();
   const paypalAmount = convertToPaypalAmount(amount, currency);
 
@@ -43,7 +48,7 @@ export const createPayPalOrder = async ({ orderId, amount, currency }) => {
       },
     ],
     application_context: {
-      return_url: PAYPAL_CONFIG.return_url,
+      return_url: `${CLIENT_URL}paypal_return`,
       cancel_url: `${window.location.origin}/checkout/result?orderId=${orderId}&status=fail`,
     },
   };

@@ -22,6 +22,7 @@ import {
 import { path } from "../utils/path";
 import { showModal, hideModal } from "../store/app/appSlice";
 import { PAYMENT_CONFIG } from "../config/paymentConfig";
+import { getPaymentCheckoutUrl, getApiUrl } from "../data/services/lms/urls";
 
 // test moi truong
 // http://apps.local.openedx.io:2002/checkout/?course_id=course-v1%3AHoiDanIT%2BY0001%2B2025_T2&user=minhduchg454&next=http%3A%2F%2Flocal.openedx.io%3A8000%2Fcourses%2Fcourse-v1%3AHoiDanIT%2BY0001%2B2025_T2%2Fabout
@@ -80,7 +81,6 @@ export const Checkout = () => {
   };
 
   useEffect(() => {
-    console.log("Nhan yeuy cau");
     sessionStorage.removeItem("payment_locked");
     sessionStorage.removeItem("payment_order_id");
     fetchCheckoutData()
@@ -113,6 +113,8 @@ export const Checkout = () => {
   const { course, pricing, username, nextUrl, lmsBase } = data;
 
   const handlePay = async () => {
+    const CLIENT_URL = getPaymentCheckoutUrl();
+
     if (!paymentDetail) {
       alert("Vui lòng chọn phương thức thanh toán");
       return;
@@ -155,6 +157,7 @@ export const Checkout = () => {
               orderId: order.id,
               amount: pricing.price,
               bankCode: "NCB",
+              CLIENT_URL,
             },
             clientIp,
           );
@@ -172,6 +175,7 @@ export const Checkout = () => {
             orderId: order.id,
             amount: pricing.price,
             orderInfo: `Thanh toán khóa học: ${course.display_name}`,
+            CLIENT_URL,
           });
 
           dispatch(hideModal());
@@ -191,6 +195,7 @@ export const Checkout = () => {
             orderId: order.id,
             amount: pricing.price,
             currency: pricing.currency,
+            CLIENT_URL,
           });
 
           dispatch(hideModal());
@@ -256,7 +261,13 @@ export const Checkout = () => {
     } catch (err) {
       const msg =
         err?.message || "Không thể tạo đơn hàng hoặc khởi tạo thanh toán";
-      window.location.href = `${path.result}?status=fail&message=${encodeURIComponent(msg)}`;
+      dispatch(hideModal());
+      navigate(
+        `${path.result}?status=fail&message=${encodeURIComponent(msg)}`,
+        {
+          replace: true,
+        },
+      );
     }
   };
 

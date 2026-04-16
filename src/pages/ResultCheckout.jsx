@@ -21,6 +21,10 @@ export const ResultCheckout = () => {
       setState({
         status: "fail",
         message: queryMessage || "Thanh toán thất bại",
+        course: {},
+        amount: 0,
+        currency: "VND",
+        paymentMethod: {},
       });
       setLoading(false);
       return;

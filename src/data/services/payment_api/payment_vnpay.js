@@ -19,7 +19,7 @@ function sortObject(obj) {
 }
 
 export const createPaymentVNpay = async (body, ipAddr) => {
-  const { amount, bankCode, orderInfo, returnPath, orderId } = body;
+  const { amount, bankCode, orderInfo, returnPath, orderId, CLIENT_URL } = body;
 
   if (!amount || isNaN(amount)) {
     const err = new Error("Thiếu hoặc sai định dạng amount");
@@ -27,12 +27,12 @@ export const createPaymentVNpay = async (body, ipAddr) => {
     throw err;
   }
 
-  const { tmnCode, hashSecret, url, returnUrl, ipnUrl } = VNPAY_CONFIG;
+  const { tmnCode, hashSecret, url } = VNPAY_CONFIG;
 
   const createDate = moment().format("YYYYMMDDHHmmss");
 
-  const urlObj = new URL(returnUrl);
-  const ipnObj = new URL(ipnUrl);
+  const urlObj = new URL(`${CLIENT_URL}vnpay_return/`);
+  const ipnObj = new URL(`${CLIENT_URL}vnpay_ipn/`);
 
   if (returnPath) {
     urlObj.searchParams.set("returnPath", returnPath);

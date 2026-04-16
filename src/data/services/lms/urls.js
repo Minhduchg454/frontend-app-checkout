@@ -2,7 +2,11 @@ import { getConfig } from "@edx/frontend-platform";
 import StrictDict from "../../utils/StrictDict";
 
 const getBaseUrl = () => getConfig().LMS_BASE_URL;
+
 export const getApiUrl = () => `${getConfig().LMS_BASE_URL}/api`;
+export const getPaymentCheckoutUrl = () =>
+  `${getConfig().PAYMENT_CHECKOUT_URL}`;
+
 const cuscApiBase = () => `${getApiUrl()}/cusc-edx-api`;
 
 // --- Các hàm xử lý URL (URL Utilities) ---
@@ -50,6 +54,7 @@ export const sendMailUrl = () => `${cuscApiBase()}/mailer/send/`;
 
 export const simulateSuccessUrl = (orderId) =>
   `${cuscApiBase()}/orders/${orderId}/status/`;
+
 export const vnpayCreateUrl = () => `${cuscApiBase()}/vnpay/create-payment/`;
 export const momoCreateUrl = () => `${cuscApiBase()}/momo/create-payment/`;
 export const paypalCreateUrl = () => `${cuscApiBase()}/paypal/create-payment/`;
@@ -75,4 +80,5 @@ export default StrictDict({
   vnpayCreateUrl,
   momoCreateUrl,
   paypalCreateUrl,
+  getPaymentCheckoutUrl,
 });

@@ -1,10 +1,8 @@
 import vnpayIcon from "../assets/images/VNPay-active.png";
 import momoIcon from "../assets/images/MoMo-active.png";
 import paypalIcon from "../assets/images/paypal_active.png";
-
 import visaIcon from "../assets/images/logo-visa.png";
 import mastercardIcon from "../assets/images/logo-mastercard.svg";
-
 import agribankIcon from "../assets/images/logo-agribank.png";
 import hdbankIcon from "../assets/images/logo-hdbank.png";
 import sacombankIcon from "../assets/images/logo-sacombank.png";
