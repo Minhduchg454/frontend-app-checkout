@@ -1,0 +1,38 @@
+{
+  "vietinbank": {
+    "bankCode": "970415",
+    "bankName": "VietinBank",
+    "accountNumber": "103874068274",
+    "accountName": "NGUYEN HUU DUC"
+  },
+  "agribank": {
+    "bankCode": "970405",
+    "bankName": "Agribank",
+    "accountNumber": "1800201003948",
+    "accountName": "TRUONG DAI HOC CAN THO"
+  },
+  "hdbank": {
+    "bankCode": "970437",
+    "bankName": "HDBank",
+    "accountNumber": "007704070018367",
+    "accountName": "TRUONG DAI HOC CAN THO"
+  },
+  "sacombank": {
+    "bankCode": "970403",
+    "bankName": "Sacombank",
+    "accountNumber": "070061113779",
+    "accountName": "TRUONG DAI HOC CAN THO"
+  },
+  "vietcombank": {
+    "bankCode": "970436",
+    "bankName": "Vietcombank",
+    "accountNumber": "0111000318806",
+    "accountName": "TRUONG DAI HOC CAN THO"
+  },
+  "bidv": {
+    "bankCode": "970418",
+    "bankName": "BIDV",
+    "accountNumber": "7410612345",
+    "accountName": "TRUONG DAI HOC CAN THO"
+  }
+}
