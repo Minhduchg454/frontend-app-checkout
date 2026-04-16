@@ -8,6 +8,7 @@ module.config.js
 
 dist/
 src/i18n/transifex_input.json
+src/config/paymentProviderConfig.js
 temp/babel-plugin-react-intl
 
 ### pyenv ###

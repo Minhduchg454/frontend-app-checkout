@@ -105,9 +105,6 @@ export const createMoMoPayment = async ({
   }
 };
 
-/**
- * Xây dựng chuỗi raw signature để kiểm tra kết quả trả về
- */
 function buildVerifyRawSignature(query, accessKey) {
   const {
     amount,

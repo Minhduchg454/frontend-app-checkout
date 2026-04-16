@@ -6,7 +6,7 @@ const lmsBase = `${baseAppUrl("/")}`;
 
 export const Header = ({ showExit = true, urlExit = lmsBase }) => (
   <header className="bg-white border-b">
-    <div className="mx-auto flex items-center justify-between px-6 py-4">
+    <div className="mx-auto flex items-center justify-between px-2 py-2 md:px-6 md:py-4">
       <a className="flex items-center gap-4" href={urlExit || lmsBase}>
         <img src={ctuLogo} alt="CTU" className="h-10" />
         <img src={cuscLogo} alt="CUSC" className="h-10" />

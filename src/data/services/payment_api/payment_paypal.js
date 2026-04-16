@@ -1,7 +1,6 @@
 import axios from "axios";
 import { PAYPAL_CONFIG } from "../../../config/paymentProviderConfig";
 
-// Hàm lấy Access Token từ PayPal (OAuth2)
 async function getPayPalAccessToken() {
   const auth = btoa(
     `${PAYPAL_CONFIG.PAYPAL_CLIENT_ID}:${PAYPAL_CONFIG.PAYPAL_CLIENT_SECRET}`,
@@ -26,7 +25,6 @@ export function convertToPaypalAmount(amount, currency) {
   return Number(amount).toFixed(2);
 }
 
-// Tạo đơn hàng PayPal
 export const createPayPalOrder = async ({
   orderId,
   amount,
@@ -68,7 +66,6 @@ export const createPayPalOrder = async ({
   return { approveUrl };
 };
 
-// Capture (Xác nhận) thanh toán khi người dùng quay lại
 export const capturePayPalOrder = async (token) => {
   const accessToken = await getPayPalAccessToken();
   const res = await axios.post(

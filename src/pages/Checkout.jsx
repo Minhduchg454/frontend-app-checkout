@@ -277,7 +277,7 @@ export const Checkout = () => {
       <Header urlExit={nextUrl} />
 
       {/* ===== MAIN ===== */}
-      <main className="flex-1 mx-auto w-full px-6 py-8">
+      <main className="flex-1 mx-auto w-full  px-2 md-px-6 py-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
           {/* LEFT: PAYMENT */}
           <section className="md:col-span-2 bg-white rounded-xl shadow p-6">
@@ -285,11 +285,11 @@ export const Checkout = () => {
               Chọn phương thức thanh toán
             </h2>
 
-            <div className="text-sm flex justify-start items-center gap-2">
+            <div className="text-sm flex justify-start items-center gap-2 text-ellipsis">
               {paymentMethods.map((method) => (
                 <label
                   key={method.id}
-                  className={`border p-2 rounded-xl flex items-center gap-2 ${
+                  className={`border p-2 rounded-xl flex items-center gap-2 h-20 justify-start  ${
                     selectedMethod === method.id ? "border-cusc_blue" : ""
                   }`}
                 >
@@ -302,12 +302,14 @@ export const Checkout = () => {
                     onChange={() => handleSelectMethod(method.id)}
                   />
 
-                  {method.label}
+                  <span className="break-words leading-tight text-left">
+                    {method.label}
+                  </span>
                 </label>
               ))}
             </div>
 
-            <div className="mt-6">
+            <div className="w-full mt-6">
               <h2 className="text-sm font-semibold mb-4">
                 Lựa chọn phương thức thanh toán
               </h2>
