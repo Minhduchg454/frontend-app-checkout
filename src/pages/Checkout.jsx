@@ -207,6 +207,7 @@ export const Checkout = () => {
         case "hdbank":
         case "agribank":
         case "bidv":
+        case "vietcombank":
         case "vietinbank": {
           dispatch(hideModal());
           const bank = order.extra_data?.bank_transfer;

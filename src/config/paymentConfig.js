@@ -8,6 +8,7 @@ import hdbankIcon from "../assets/images/logo-hdbank.png";
 import sacombankIcon from "../assets/images/logo-sacombank.png";
 import bidvIcon from "../assets/images/logo-bidv.png";
 import vietinbankIcon from "../assets/images/logo-vietinbank.png";
+import vietcombankIcon from "../assets/images/logo-vietcombank.png";
 
 export const PAYMENT_CONFIG = {
   wallet: {
@@ -89,6 +90,12 @@ export const PAYMENT_CONFIG = {
         id: "vietinbank",
         label: "VietinBank",
         icon: vietinbankIcon,
+        active: true,
+      },
+      {
+        id: "vietcombank",
+        label: "Vietcombank",
+        icon: vietcombankIcon,
         active: true,
       },
     ],
